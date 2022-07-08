@@ -1,0 +1,65 @@
+[System]
+Name='zadatak1'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=20
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='udaljenost'
+Range=[0 10]
+NumMFs=4
+MF1='skoro-nula':'trapmf',[0 0 0.87 2.51]
+MF2='mala':'trapmf',[0.531 2.67 3.41 6.22]
+MF3='srednja':'trapmf',[2.8 6.16 6.67 9.81]
+MF4='velika':'trapmf',[6.53 8.91 10.6 12.2]
+
+[Input2]
+Name='ugao'
+Range=[-90 90]
+NumMFs=5
+MF1='nula':'trimf',[-20 0 20]
+MF2='neg-veliki':'trapmf',[-140 -95 -85 -40]
+MF3='neg-mali':'trapmf',[-85 -35 -20 5]
+MF4='poz-mali':'trapmf',[-5 20 35 85]
+MF5='poz-veliki':'trapmf',[40 85 95 140]
+
+[Output1]
+Name='promjena-ugla'
+Range=[-90 90]
+NumMFs=7
+MF1='nula':'trimf',[-20 0 20]
+MF2='neg-velika':'trapmf',[-140 -110 -85 -60]
+MF3='neg-mala':'trapmf',[-70 -35 -25 10]
+MF4='poz-mala':'trapmf',[-10 25 35 70]
+MF5='poz-velika':'trapmf',[60 85 110 140]
+MF6='neg-srednja':'trapmf',[-110 -70 -60 -40]
+MF7='poz-srednja':'trapmf',[40 60 70 110]
+
+[Rules]
+1 2, 5 (1) : 1
+1 3, 4 (1) : 1
+1 1, 1 (1) : 1
+1 4, 3 (1) : 1
+1 5, 2 (1) : 1
+2 2, 7 (1) : 1
+2 3, 4 (1) : 1
+2 4, 3 (1) : 1
+2 5, 6 (1) : 1
+2 1, 1 (1) : 1
+3 2, 7 (1) : 1
+3 3, 4 (1) : 1
+3 1, 1 (1) : 1
+3 4, 3 (1) : 1
+3 5, 6 (1) : 1
+4 2, 7 (1) : 1
+4 3, 4 (1) : 1
+4 1, 1 (1) : 1
+4 4, 3 (1) : 1
+4 5, 6 (1) : 1
